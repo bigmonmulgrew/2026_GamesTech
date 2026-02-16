@@ -27,7 +27,12 @@
     }
     public float Damage { get { return damage; } set { damage = value; } }
 
-
+    public Unit(string unitType, int health, float damage)
+    {
+        this.unitType = unitType;
+        this.health = health;
+        this.damage = damage;
+    }
 
     // Method that prints the units data.
     public void PrintStats()
