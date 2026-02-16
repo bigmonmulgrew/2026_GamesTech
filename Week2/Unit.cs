@@ -1,26 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-class Unit
+﻿class Unit
 {
+    private string unitType;
+    private int health;
+    private float damage;
+
     // Data that belongs to ONE unit
-    public string Name;
-    public int Health;
-    public int Damage;
+    // C# Does not care about white space (Tabs, Spaces, newlines). All three of theese do the same thing
+    // Consistency is key when it comes to white space. Notice this is hard to read due to the inconsistent use of white space.
+    // It is a good practice to use the same amount of indentation (Tabs or Spaces) throughout your code.
+    // This makes it easier to read and understand.
+    public string UnitType
+    {
+        get { return unitType; }
+        set { unitType = value; }
+    }
+    public float Health
+    {
+        get
+        {
+            return health;
+        }
+        set
+        {
+            health = (int)value;
+        }
+    }
+    public float Damage { get { return damage; } set { damage = value; } }
+
+
 
     // Method that prints the units data.
     public void PrintStats()
     {
-        Console.WriteLine($"Name: {Name}, Health: {Health}, Damage: {Damage}");
+        Console.WriteLine($"Name: {UnitType}, Health: {Health}, Damage: {Damage}");
     }
 
 
     // Allows an object of this class to be printed as a string.
     public override string ToString()
     {
-        return $"Name: {Name}, Health: {Health}, Damage: {Damage}";
+        return $"Name: {UnitType}, Health: {Health}, Damage: {Damage}";
     }
 }
