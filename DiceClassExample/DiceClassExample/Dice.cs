@@ -2,6 +2,8 @@
 {
     private int faces;
 
+    public int NumberOfSides { get; } // No set, this is read only
+
     public Dice()
     {
         faces = 6;
