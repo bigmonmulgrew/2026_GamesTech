@@ -3,6 +3,7 @@
     private int faces;
 
     public int NumberOfSides { get; } // No set, this is read only
+    // Why might it be bad to use faces and sides interchangably?
 
     public Dice()
     {
@@ -34,6 +35,12 @@
         Random RAND = new Random();
         // Why is capitalising RAND a bad idea?
         return RAND.Next(1, faces + 1) + RollMultipleTimes(times - 1);
+    }
+
+    public override string ToString()
+    {
+        return $"1d{faces}";
+        
     }
 }
 
