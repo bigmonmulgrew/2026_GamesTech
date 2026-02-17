@@ -14,5 +14,11 @@
         // scope takes priority.
         this.faces = faces; 
     }
+
+    public int Roll()
+    {
+        Random RAND = new Random();
+        return RAND.Next(1, faces + 1);
+    }
 }
 
