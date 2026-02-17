@@ -1,2 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+
+Dice dice = new Dice();
+
+Console.WriteLine(dice);
