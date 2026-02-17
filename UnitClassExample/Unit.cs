@@ -4,6 +4,8 @@
     private int health;
     private float damage;
 
+    
+
     // Data that belongs to ONE unit
     // C# Does not care about white space (Tabs, Spaces, newlines). All three of theese do the same thing
     // Consistency is key when it comes to white space. Notice this is hard to read due to the inconsistent use of white space.
@@ -33,6 +35,11 @@
         this.health = health;
         this.damage = damage;
     }
+
+    // This is an example of a bad practice Property.
+    // The first character is lowercase. This will work, but can cause issues later.
+    // Visual studio will flag this and give a small warning .. under the first character.
+    public string myString { get { return unitType; } set { unitType = value; } }
 
     // Method that prints the units data.
     public void PrintStats()
