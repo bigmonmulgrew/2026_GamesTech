@@ -3,3 +3,7 @@
 Dice dice = new Dice();
 
 Console.WriteLine(dice);
+
+Dice anotherDice = new Dice();
+
+Console.WriteLine(anotherDice);
