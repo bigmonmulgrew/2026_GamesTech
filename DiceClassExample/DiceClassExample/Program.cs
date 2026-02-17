@@ -18,3 +18,6 @@ Console.WriteLine(result);
 //result = dice.Roll(); Console.WriteLine(result);
 //result = dice.Roll(); Console.WriteLine(result);
 //result = dice.Roll(); Console.WriteLine(result);
+
+int multipleResult = dice.RollMultipleTimes(10);
+Console.WriteLine(multipleResult);

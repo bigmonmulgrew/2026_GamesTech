@@ -20,5 +20,17 @@
         Random RAND = new Random();
         return RAND.Next(1, faces + 1);
     }
+
+    /// <summary>
+    /// Returns the sum of many rolls
+    /// </summary>
+    /// <param name="times"></param>
+    /// <returns></returns>
+    public int RollMultipleTimes(int times)
+    {
+        if (times <= 0) return 0;   // Without this it would go on forever with times being negative
+        Random RAND = new Random();
+        return RAND.Next(1, faces + 1) + RollMultipleTimes(times - 1);
+    }
 }
 
