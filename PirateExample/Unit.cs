@@ -1,8 +1,8 @@
 ﻿public class Unit
 {
-    private string unitType;
-    private int health;
-    private float damage;
+    protected string unitType;
+    protected int health;
+    protected float damage;
 
     public string UnitType { get { return unitType; } set { unitType = value; } }
     public float Health { get { return health; }  set { health = (int)value; } }
