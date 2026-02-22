@@ -1,8 +1,10 @@
 ﻿
-Pirate captain = new Pirate("Blackbeard", 150, 50, "Sea++");    
+Ship ship = new Ship("Sea++", 100, new Vector2(0, 0));
 
-Pirate crew1 = new Pirate("Will", 90, 25, "Sea++");  // We are repeating data, consider using a constant
-Pirate crew2 = new Pirate("Anne", 95, 30, "Sea++");
+Pirate captain = new Pirate("Blackbeard", 150, 50, ship);    
+
+Pirate crew1 = new Pirate("Will", 90, 25, ship); 
+Pirate crew2 = new Pirate("Anne", 95, 30, ship);
 
 // Add the crew members to the captain's crew list
 captain.Crew.Add(crew1);
@@ -15,5 +17,8 @@ captain.Prisoners.Add(new Unit("Captured Soldier", 50, 5));
 captain.Destinations.Enqueue("Tortuga");
 captain.Destinations.Enqueue("Skull Island");
 
-Console.WriteLine("Next destination: " + captain.Destinations.Dequeue());
-// Output: Next destination: Tortuga
+Console.WriteLine(
+    $"Next destination: {captain.Destinations.Dequeue()} " +
+    $"aboard the {captain.PirateShip.Name}"
+    );
+// Output: Next destination: Tortuga aboard the Sea++

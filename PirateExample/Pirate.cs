@@ -2,7 +2,7 @@
 
 public class Pirate : Unit
 {
-    string pirateShip;
+    Ship pirateShip;
     List<Pirate> crew = new();
     List<Unit> prisoners = new();
     Queue<string> destinations = new();
@@ -17,7 +17,7 @@ public class Pirate : Unit
 
     // Collapse to keep things tidy
     #region Properties  
-    public string PirateShip        { get { return pirateShip; } set { pirateShip = value; } }
+    public Ship PirateShip        { get { return pirateShip; } set { pirateShip = value; } }
     public List<Pirate> Crew        { get { return crew; } set { crew = value; } }
     public List<Unit> Prisoners     { get { return prisoners; } set { prisoners = value; } }
     public Queue<string> Destinations { get { return destinations; } set { destinations = value; } }
@@ -29,7 +29,7 @@ public class Pirate : Unit
     public string TreasureClue      { get { return treasureClue; } set { treasureClue = value; } }
     #endregion
 
-    public Pirate(string unitType, int health, float damage, string pirateShip) 
+    public Pirate(string unitType, int health, float damage, Ship pirateShip) 
         : base(unitType, health, damage)
     {
         this.pirateShip = pirateShip;
