@@ -19,6 +19,7 @@ captain.Destinations.Enqueue("Skull Island");
 
 Console.WriteLine(
     $"Next destination: {captain.Destinations.Dequeue()} " +
-    $"aboard the {captain.PirateShip.Name}"
+    $"aboard the {captain.PirateShip.Name}, " +
+    $"following my trusty map, {captain.TreasureMap.Name}"
     );
 // Output: Next destination: Tortuga aboard the Sea++

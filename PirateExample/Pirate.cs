@@ -3,6 +3,7 @@
 public class Pirate : Unit
 {
     Ship pirateShip;
+    Map treasureMap;
     List<Pirate> crew = new();
     List<Unit> prisoners = new();
     Queue<string> destinations = new();
@@ -18,6 +19,7 @@ public class Pirate : Unit
     // Collapse to keep things tidy
     #region Properties  
     public Ship PirateShip        { get { return pirateShip; } set { pirateShip = value; } }
+    public Map TreasureMap        { get { return treasureMap; } set { treasureMap = value; } }
     public List<Pirate> Crew        { get { return crew; } set { crew = value; } }
     public List<Unit> Prisoners     { get { return prisoners; } set { prisoners = value; } }
     public Queue<string> Destinations { get { return destinations; } set { destinations = value; } }
@@ -33,6 +35,7 @@ public class Pirate : Unit
         : base(unitType, health, damage)
     {
         this.pirateShip = pirateShip;
+        this.treasureMap = new Map("Loot map");
 
         // Hard coded clue for now
         treasureClue = "My treasure is under a tree!";
