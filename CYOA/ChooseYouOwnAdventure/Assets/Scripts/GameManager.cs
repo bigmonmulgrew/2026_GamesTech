@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -121,6 +123,32 @@ public class GameManager : MonoBehaviour
     [SerializeField] InputAction inputAction1;
     [SerializeField] InputAction inputAction2;
 
+    // TMP text reference to display the story text and decisions
+    [SerializeField] TextMeshProUGUI storyText;
+    [SerializeField] TextMeshProUGUI decision1Text;
+    [SerializeField] TextMeshProUGUI decision2Text;
+
+    int currentPage;
+
+    private void Start()
+    {
+        LoadPage(1);
+    }
+    private void LoadPage(int pageNumber)
+    {
+        // Set the current page to the page number passed in
+        currentPage = pageNumber;
+
+        // Get the page, - 1 because the array is
+        // 0 indexed but our page numbers start at 1
+        StoryPage page = storyPages[currentPage - 1];
+
+        // Apply the page text and decision text to the UI
+        storyText.text = $"{page.Text}";
+        decision1Text.text = $"{page.Decision1Text}";
+        decision2Text.text = $"{page.Decision2Text}";
+    }
+
     void OnEnable()
     {
         inputAction1.Enable();
@@ -145,12 +173,16 @@ public class GameManager : MonoBehaviour
 
     private void Decision1Made()
     {
-        Debug.Log("Decision 1 made!");
+        StoryPage page = storyPages[currentPage - 1];
+
+        LoadPage(page.NextPage1);
     }
 
     private void Decision2Made()
     {
-        Debug.Log("Decision 2 made!");
+        StoryPage page = storyPages[currentPage - 1];
+
+        LoadPage(page.NextPage2);
     }
 
     public void Button1Click()
