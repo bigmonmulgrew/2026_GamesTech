@@ -419,6 +419,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87159dd57e2aa484bb8e1abfaed91f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  inputAction1:
+    m_Name: Input Action 1
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5c02745e-20b7-45f0-906b-bf48eded802a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 28c364d8-d664-4d82-b77d-63da1f2e0084
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Action 1
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 99218a6e-c342-4f02-b773-05d110eab041
+      m_Path: <Gamepad>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Action 1
+      m_Flags: 0
+    m_Flags: 0
+  inputAction2:
+    m_Name: Input Action 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6f283166-354b-4c17-8397-2f8e0ec83d3c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 51c4c345-edff-4694-805f-e5a1f8f5b9ca
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Action 2
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 8f459d23-0a22-47ca-a915-57e5473eccfd
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Action 2
+      m_Flags: 0
+    m_Flags: 0
 --- !u!4 &334398574
 Transform:
   m_ObjectHideFlags: 0
