@@ -20,20 +20,30 @@ public class GameManager : MonoBehaviour
     {
         if (inputAction1.WasPressedThisFrame())
         {
-            Debug.Log($"Input 1 pressed the button!");
+            Decision1Made();
         }
         if (inputAction2.WasPressedThisFrame())
         {
-            Debug.Log($"Input 2 pressed the button!");
+            Decision2Made();
         }
+    }
+
+    private void Decision1Made()
+    {
+        Debug.Log("Decision 1 made!");
+    }
+
+    private void Decision2Made()
+    {
+        Debug.Log("Decision 2 made!");
     }
 
     public void Button1Click()
     {
-        Debug.Log("Button 1 clicked!");
+        Decision1Made();
     }
     public void Button2Click()
     {
-        Debug.Log("Button 2 clicked!");
+        Decision2Made();
     }
 }
