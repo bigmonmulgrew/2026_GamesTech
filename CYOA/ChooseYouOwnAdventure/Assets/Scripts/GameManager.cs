@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Button1Click()
     {
-        
+        Debug.Log("Button 1 clicked!");
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Button2Click()
     {
-        
+        Debug.Log("Button 2 clicked!");
     }
 }
