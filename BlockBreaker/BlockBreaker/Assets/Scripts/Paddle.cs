@@ -23,7 +23,8 @@ public class Paddle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Limit frame rate to simulate potato PC for demonstration
+        // Application.targetFrameRate = 10;
     }
 
     // Update is called once per frame
@@ -40,7 +41,9 @@ public class Paddle : MonoBehaviour
         }
 
         Vector3 paddlePosition = transform.position;
-        paddlePosition.x += direction;
+        paddlePosition.x += direction * Time.deltaTime;
+
+        paddlePosition.x = Mathf.Clamp(paddlePosition.x, -maxDistance, maxDistance);
 
         transform.position = paddlePosition;
 
