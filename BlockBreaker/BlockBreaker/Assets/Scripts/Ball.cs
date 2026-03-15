@@ -1,16 +1,30 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Ball : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] InputAction launchButton;
+    [SerializeField] Vector2 launchPower;
+    bool isLaunched = false;
+
+    private void OnEnable()
     {
-        
+        launchButton.Enable();
     }
 
-    // Update is called once per frame
+    private void OnDisable()
+    {
+        launchButton.Disable();
+    }
     void Update()
     {
-        
+        if (isLaunched) return;
+
+
+        if (launchButton.WasPressedThisFrame())
+        {
+            isLaunched = true;
+            GetComponent<Rigidbody2D>().AddForce(launchPower, ForceMode2D.Impulse);
+        }
     }
 }
