@@ -2,15 +2,27 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    static int count = 0;
+    [SerializeField] int health = 1;
+
+    private void Awake()
     {
-        
+        count++;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        health--;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        count--;
+        Debug.Log($"Ramaining blocks {count}");
     }
 }
