@@ -5,6 +5,8 @@ public class Brick : MonoBehaviour
     static int count = 0;
     [SerializeField] int health = 1;
 
+    [SerializeField] AudioClip breakSound;
+
     private void Awake()
     {
         count++;
@@ -13,6 +15,7 @@ public class Brick : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         health--;
+        AudioSource.PlayClipAtPoint(breakSound, transform.position);
 
         if (health <= 0)
         {
