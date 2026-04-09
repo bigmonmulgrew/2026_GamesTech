@@ -31,4 +31,5 @@ public class Player : MonoBehaviour
     {
         rb.MovePosition(rb.position + moveAction.ReadValue<Vector2>() * moveSpeed * Time.deltaTime);
     }
+    
 }
