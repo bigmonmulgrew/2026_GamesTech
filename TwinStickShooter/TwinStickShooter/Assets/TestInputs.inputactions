@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "TestInputs",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "436e5900-7b6a-4e48-b213-520eff96d029",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "67ac1f60-d2b1-4fee-94f7-e6d4acc25feb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "865b20f8-baf6-4a25-91e1-701901f8fa9a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "479434c5-4b11-4b16-a349-f8a58784b075",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed07e06d-1300-4d9d-8847-ebe862b55aad",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
