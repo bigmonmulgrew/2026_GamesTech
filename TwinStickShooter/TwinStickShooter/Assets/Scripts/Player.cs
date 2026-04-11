@@ -9,12 +9,17 @@ public class Player : MonoBehaviour
     InputAction moveAction;
 
     Rigidbody2D rb;
+    Animator animator;
 
     private void Awake()
     {
+    
+            
+    
         playerInputs = new DefaultInputActions();
         moveAction = playerInputs.Player.Move;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {        
@@ -27,9 +32,10 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    private void Move()
+    private void Move()   
     {
-        rb.MovePosition(rb.position + moveAction.ReadValue<Vector2>() * moveSpeed * Time.deltaTime);
+        Vector2 moveDirection = moveAction.ReadValue<Vector2>();
+        rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
     }
     
 }
