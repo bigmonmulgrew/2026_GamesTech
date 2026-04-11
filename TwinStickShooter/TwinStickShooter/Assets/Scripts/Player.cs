@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -13,9 +14,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-    
-            
-    
         playerInputs = new DefaultInputActions();
         moveAction = playerInputs.Player.Move;
         rb = GetComponent<Rigidbody2D>();
@@ -25,17 +23,23 @@ public class Player : MonoBehaviour
     {        
        playerInputs.Player.Enable();
     }
-
-
     void Update()
     {
         Move();
     }
-
     private void Move()   
     {
         Vector2 moveDirection = moveAction.ReadValue<Vector2>();
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
+
+        if(moveDirection.y <= 0)
+        {
+            animator.SetTrigger("WalkDownTrigger");
+        }
+        else
+        {
+            animator.SetTrigger("WalkUpTrigger");
+        }
     }
     
 }
