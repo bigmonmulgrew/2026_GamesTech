@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float dashForce = 10f;
     [SerializeField] float dashDuration = 0.15f;
+    [SerializeField] GameObject smokePrefab;
 
     InputSystem_Actions playerInputs;
     InputAction moveAction;
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
             isGrounded = false;
             animator.SetBool("IsGrounded", false);
             animator.SetTrigger("JumpTrigger");
+            Instantiate(smokePrefab, transform.position, Quaternion.identity);
         }
     }
 
