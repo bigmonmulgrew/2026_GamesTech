@@ -8,11 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] float dashForce = 10f;
     [SerializeField] float dashDuration = 0.15f;
     [SerializeField] GameObject smokePrefab;
+    [SerializeField] float interractionRange = 2f;
 
     InputSystem_Actions playerInputs;
     InputAction moveAction;
     InputAction jumpAction;
     InputAction dashAction;
+    InputAction interactAction;
 
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
         playerInputs = new InputSystem_Actions();
         moveAction = playerInputs.Player.Move;
         jumpAction = playerInputs.Player.Jump;
+        interactAction = playerInputs.Player.Interact;
 
         // Change this to Player.Dash if your input actions actually have one
         dashAction = playerInputs.Player.Crouch;
@@ -56,8 +59,25 @@ public class Player : MonoBehaviour
         Dash();
         UpdateAnimations();
         HandleSpriteDirection();
+
+        if (interactAction.triggered)
+        {
+            TriggerInteraction();
+        }
     }
 
+    void TriggerInteraction()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, interractionRange);
+        foreach (var hitCollider in hitColliders)
+        {
+            IInteractable interactable = hitCollider.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
+        }
+    }
     private void FixedUpdate()
     {
         Move();
