@@ -535,7 +535,6 @@ GameObject:
   - component: {fileID: 1803792672}
   - component: {fileID: 1803792671}
   - component: {fileID: 1803792676}
-  - component: {fileID: 1803792677}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -716,18 +715,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   colourChangeRate: 2
---- !u!114 &1803792677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803792670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08ab3522089e48e4e857e0dd8231c78b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectReadme
 --- !u!114 &1803792678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,7 +727,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7216a00caa02f044bb9d6cafa8f8cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Readme
-  text: Add object notes here.
+  text: "Player one has two interesting scripts.\n\nTwinPlayer allows one user to
+    switch between controlling different characters.\n\nPress the Interact button
+    to twitch (Default E)\n\nPlayerPrefsExample shows how to save player date. It
+    implements a simple script that changes the colour of the player based on move
+    and look input and then saves the value.\n\nOn restarting the game the colour
+    will be loaded from the saved value. Any value can be saved this way. Ints, floats
+    and string acan be saved directly. \n\nSaving more complex data requires saving
+    to string and serializing/deserializing the data. Very complex data shoudl use
+    other methods such as file saving"
 --- !u!1001 &2109434495169270562
 PrefabInstance:
   m_ObjectHideFlags: 0
