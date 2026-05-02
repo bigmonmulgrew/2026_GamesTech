@@ -21,8 +21,15 @@ public class ReadmeEditor : Editor
         {
             EditorGUILayout.LabelField("Readme", EditorStyles.boldLabel);
 
+            GUIStyle textAreaStyle = new GUIStyle(EditorStyles.textArea)
+            {
+                wordWrap = true,
+                fontSize = 16 // adjust as needed
+            };
+
             textProperty.stringValue = EditorGUILayout.TextArea(
                 textProperty.stringValue,
+                textAreaStyle,
                 GUILayout.MinHeight(120)
             );
 
@@ -51,14 +58,15 @@ public class ReadmeEditor : Editor
 
     private void DrawFormattedReadme(string text)
     {
-        GUIStyle style = new GUIStyle(EditorStyles.helpBox)
+        GUIStyle displayStyle = new GUIStyle(EditorStyles.helpBox)
         {
             richText = true,
             wordWrap = true,
+            fontSize = 16,
             padding = new RectOffset(10, 10, 8, 8)
         };
 
-        EditorGUILayout.LabelField(text, style);
+        EditorGUILayout.LabelField(text, displayStyle);
     }
 }
 

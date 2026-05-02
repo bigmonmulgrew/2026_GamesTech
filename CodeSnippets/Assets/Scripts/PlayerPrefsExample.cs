@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class PlayerColorPrefs : MonoBehaviour
+public class PlayerPrefsExample : MonoBehaviour
 {
     [SerializeField] float colourChangeRate = 2.0f;
     // Cache a reference ot the sprite renderer
