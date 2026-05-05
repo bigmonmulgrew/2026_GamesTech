@@ -32,7 +32,8 @@ public class LockByValue : MonoBehaviour
         // Disable player inputs
         playerInputs.Disable();
     }
-    private void Update()
+    // Fixed Update runs on the physics tick, rather than every frame. Default is 50fps
+    private void FixedUpdate()
     {
         MovePlayer();
     }
@@ -47,8 +48,11 @@ public class LockByValue : MonoBehaviour
         // Find the position of the current object to use in calculations
         Vector2 position = transform.position;
 
-        bool movingHorizontal = Mathf.Abs(moveDirection.x) >= Mathf.Abs(moveDirection.y);
         // First choose which axis to move on. X or Y. If both are pressed we prefer x, horizontal.
+        // You may want to consider adding logic that tracks button order so you could chose to make
+        // the latest input take priority or make the first input take priority.
+        bool movingHorizontal = Mathf.Abs(moveDirection.x) >= Mathf.Abs(moveDirection.y);
+
         if (movingHorizontal)
         {
             // Move in X axis
