@@ -7,7 +7,9 @@ using UnityEngine;
 [CustomEditor(typeof(Readme))]
 public class ReadmeEditor : Editor
 {
+    const int INSPECTOR_FONT_SIZE = 16; // adjust as needed
     private bool isEditing;
+    Vector2 scroll;
 
     public override void OnInspectorGUI()
     {
@@ -21,17 +23,44 @@ public class ReadmeEditor : Editor
         {
             EditorGUILayout.LabelField("Readme", EditorStyles.boldLabel);
 
-            GUIStyle textAreaStyle = new GUIStyle(EditorStyles.textArea)
-            {
-                wordWrap = true,
-                fontSize = 16 // adjust as needed
-            };
+            var textAreaStyle = new GUIStyle(EditorStyles.textArea);
+            textAreaStyle.fontSize = 16;
+            textAreaStyle.wordWrap = true;
 
-            textProperty.stringValue = EditorGUILayout.TextArea(
+            // Estimate content height (same logic as before)
+            float contentHeight = textAreaStyle.CalcHeight(
+                new GUIContent(textProperty.stringValue),
+                EditorGUIUtility.currentViewWidth
+            );
+
+            // Visible height (your scroll view height)
+            float viewHeight = 200f;
+
+            // Check if user is near the bottom (with small tolerance)
+            bool wasAtBottom = scroll.y >= (contentHeight - viewHeight - 5f);
+
+            // Begin scroll
+            scroll = EditorGUILayout.BeginScrollView(scroll, GUILayout.Height(200));
+
+            // Draw text field
+            EditorGUI.BeginChangeCheck();
+
+            string newText = EditorGUILayout.TextArea(
                 textProperty.stringValue,
                 textAreaStyle,
-                GUILayout.MinHeight(120)
+                GUILayout.ExpandHeight(true)
             );
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                textProperty.stringValue = newText;
+
+                // If text changed, scroll to bottom
+                // Large Y ensures we hit the bottom regardless of content size
+                if (wasAtBottom)  scroll.y = float.MaxValue;
+            }
+
+            EditorGUILayout.EndScrollView();
 
             EditorGUILayout.Space();
 
@@ -62,7 +91,7 @@ public class ReadmeEditor : Editor
         {
             richText = true,
             wordWrap = true,
-            fontSize = 16,
+            fontSize = INSPECTOR_FONT_SIZE,
             padding = new RectOffset(10, 10, 8, 8)
         };
 
