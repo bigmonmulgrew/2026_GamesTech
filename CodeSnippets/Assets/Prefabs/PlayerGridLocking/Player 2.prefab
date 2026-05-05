@@ -13,14 +13,14 @@ GameObject:
   - component: {fileID: 306517425455335683}
   - component: {fileID: 3365247779351975317}
   - component: {fileID: 7657933311955557247}
-  - component: {fileID: 472462333396187070}
+  - component: {fileID: 4370649332840846381}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4347491778336572550
 Transform:
   m_ObjectHideFlags: 0
@@ -49,11 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Readme
   text: "This scene has more than one player. \n\nOnly enable 1 at a time.\n\nThis
-    one has a script \"LockByValue\". This takes player input, locks it to one axis
-    and moves the player to be aligned to the other axis.\n\nThis method is the simplest.
-    \nThe limitation of this method is that it moves the player diagonally while
-    making the alignment, if it hits any object it will stop.\n\nThe object shape
-    may allow it to push through with physics but this is not ideal."
+    one has a script \"SideStepCollider\". \n\nThe player collider has been adjusted
+    to (0.98,0.98), slightly smaller than the image. This means we don't generate
+    collisions when the player moves next to the obstacle but isn't moving towards
+    it.\n\nThis projects its collider to test for obstacles and when found it moves
+    perpendicular to the collider using the shortest route.\n\nWhen there are no
+    obstacles it locks to the grid similar to the Player 1 example"
 --- !u!212 &306517425455335683
 SpriteRenderer:
   serializedVersion: 2
@@ -104,7 +105,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.2924527, g: 0.85350615, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -157,7 +158,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.98, y: 0.98}
   m_EdgeRadius: 0
 --- !u!50 &7657933311955557247
 Rigidbody2D:
@@ -186,7 +187,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &472462333396187070
+--- !u!114 &4370649332840846381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,9 +196,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4872285670777711583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4228bd55763cfd74389d4b056dfba46e, type: 3}
+  m_Script: {fileID: 11500000, guid: a11123f225e6f0646818695c65a07162, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LockByValue
+  m_EditorClassIdentifier: Assembly-CSharp::SideStepCollider
   gridSize: 0.5
-  moveSpeed: 2
-  gridAlignSpeed: 1
+  moveSpeed: 4
+  gridAlignSpeed: 2
